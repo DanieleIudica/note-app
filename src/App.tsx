@@ -8,7 +8,7 @@ import { Container } from "react-bootstrap";
 function App() {
   return (
     <Container className="my-4">
-      <h1>My Notes App</h1>
+      <h1 className="mb-5">My Notes App</h1>
       <Routes>
         <Route path="/" element={<PostLists />} />
         <Route path="/post/:id" element={<Post />} />
