@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { Button, Col, Row, Stack, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Note } from "../pages/NoteLists";
 
-const NoteForm = () => {
+type NoteFormProps = {
+  onSubmit: (note: Note) => void;
+  initialValue?: Note;
+};
+
+const NoteForm = ({ onSubmit, initialValue }: NoteFormProps) => {
   const [note, setNote] = useState({
-    title: "",
-    body: "",
+    title: initialValue?.title || "",
+    body: initialValue?.body || "",
   });
 
   const handleChangeInput = (
@@ -19,6 +25,7 @@ const NoteForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    onSubmit!(note);
     console.log(note);
     setNote({
       title: "",
@@ -54,7 +61,7 @@ const NoteForm = () => {
           />
         </Form.Group>
         <Stack direction="horizontal" gap={2} className="justify-content-end">
-          <Button type="submit" variant="primary">
+          <Button type="submit" variant="success">
             Save
           </Button>
           <Link to="..">

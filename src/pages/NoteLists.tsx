@@ -6,11 +6,16 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchNotes } from "../api/notes-api";
 import { useNavigate } from "react-router-dom";
 
-type Note = {
-  id: string;
+export type Note = {
+  id?: string;
   title: string;
   body: string;
 };
+
+// export type NoteData = {
+//   title: string;
+//   body: string;
+// };
 
 const NoteLists = () => {
   const navigate = useNavigate();
