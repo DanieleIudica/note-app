@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
-import PostLists from "./pages/PostLists";
-import Post from "./pages/Post";
-import EditPost from "./pages/EditPost";
+import NoteLists from "./pages/NoteLists";
+import Note from "./pages/Note";
+import EditNote from "./pages/EditNote";
 import { Container } from "react-bootstrap";
 
 function App() {
@@ -10,9 +10,9 @@ function App() {
     <Container className="my-4">
       <h1 className="mb-5">My Notes App</h1>
       <Routes>
-        <Route path="/" element={<PostLists />} />
-        <Route path="/post/:id" element={<Post />} />
-        <Route path="/post/:id/edit" element={<EditPost />} />
+        <Route path="/" element={<NoteLists />} />
+        <Route path="/note/:id" element={<Note />} />
+        <Route path="/note/:id/edit" element={<EditNote />} />
       </Routes>
     </Container>
   );

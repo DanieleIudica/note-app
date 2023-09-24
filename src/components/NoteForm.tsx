@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Button, Col, Row, Stack, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const PostForm = () => {
-  const [post, setPost] = useState({
+const NoteForm = () => {
+  const [note, setNote] = useState({
     title: "",
     body: "",
   });
@@ -11,16 +11,16 @@ const PostForm = () => {
   const handleChangeInput = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setPost({
-      ...post,
+    setNote({
+      ...note,
       [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(post);
-    setPost({
+    console.log(note);
+    setNote({
       title: "",
       body: "",
     });
@@ -36,7 +36,7 @@ const PostForm = () => {
               <Form.Control
                 onChange={handleChangeInput}
                 name="title"
-                value={post.title}
+                value={note.title}
                 required
               />
             </Form.Group>
@@ -47,7 +47,7 @@ const PostForm = () => {
           <Form.Control
             onChange={handleChangeInput}
             name="body"
-            value={post.body}
+            value={note.body}
             required
             as="textarea"
             rows={5}
@@ -68,4 +68,4 @@ const PostForm = () => {
   );
 };
 
-export default PostForm;
+export default NoteForm;

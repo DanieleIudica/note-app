@@ -1,7 +1,7 @@
 {
     "notes": [
         {
-            "id": 1,
+            "id": "1",
             "title": "json-server",
             "body": "json-server-body"
         }
