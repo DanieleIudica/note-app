@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Button, Col, Row, Stack, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Note } from "../pages/NoteLists";
+import { isDarkMode } from "../atom/atom";
+import { useAtom } from "jotai";
 
 type NoteFormProps = {
   onSubmit: (note: Note) => void;
@@ -9,6 +11,8 @@ type NoteFormProps = {
 };
 
 const NoteForm = ({ onSubmit, initialValue }: NoteFormProps) => {
+  const [isDark] = useAtom(isDarkMode);
+
   const [note, setNote] = useState({
     title: initialValue?.title || "",
     body: initialValue?.body || "",
@@ -26,7 +30,6 @@ const NoteForm = ({ onSubmit, initialValue }: NoteFormProps) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onSubmit!(note);
-    console.log(note);
     setNote({
       title: "",
       body: "",
@@ -41,6 +44,7 @@ const NoteForm = ({ onSubmit, initialValue }: NoteFormProps) => {
             <Form.Group controlId="title">
               <Form.Label>Title</Form.Label>
               <Form.Control
+                className="input"
                 onChange={handleChangeInput}
                 name="title"
                 value={note.title}
@@ -52,6 +56,7 @@ const NoteForm = ({ onSubmit, initialValue }: NoteFormProps) => {
         <Form.Group controlId="markdown">
           <Form.Label>Body</Form.Label>
           <Form.Control
+            className="input"
             onChange={handleChangeInput}
             name="body"
             value={note.body}
@@ -61,11 +66,14 @@ const NoteForm = ({ onSubmit, initialValue }: NoteFormProps) => {
           />
         </Form.Group>
         <Stack direction="horizontal" gap={2} className="justify-content-end">
-          <Button type="submit" variant="success">
+          <Button
+            type="submit"
+            variant={isDark ? "outline-success" : "success"}
+          >
             Save
           </Button>
           <Link to="..">
-            <Button type="button" variant="outline-dark">
+            <Button type="button" variant={isDark ? "outline-light" : "dark"}>
               Cancel
             </Button>
           </Link>

@@ -2,9 +2,12 @@ import { Button, ListGroup, Spinner } from "react-bootstrap";
 import AddNote from "../components/AddNote";
 import { Book, Pencil, Trash } from "react-bootstrap-icons";
 import "../style/style.scss";
-import { useQuery } from "@tanstack/react-query";
-import { fetchNotes } from "../api/notes-api";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { deleteNote, fetchNotes } from "../api/notes-api";
 import { useNavigate } from "react-router-dom";
+import { isDarkMode } from "../atom/atom";
+import { useAtom } from "jotai";
+import "../style/style.scss";
 
 export type Note = {
   id?: string;
@@ -12,13 +15,10 @@ export type Note = {
   body: string;
 };
 
-// export type NoteData = {
-//   title: string;
-//   body: string;
-// };
-
 const NoteLists = () => {
+  const [isDark] = useAtom(isDarkMode);
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const {
     isLoading,
@@ -28,14 +28,17 @@ const NoteLists = () => {
     queryKey: ["notes"],
     queryFn: fetchNotes,
   });
-  console.log(notes);
-  // if (isLoading) {
-  //   return <Spinner animation="border" variant="secondary" />;
-  // }
 
-  if (error instanceof Error) {
-    return <span>Error: {error.message}</span>;
-  }
+  const deleteNoteMutation = useMutation({
+    mutationFn: deleteNote,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["notes"] });
+    },
+  });
+
+  const handleDeleteNote = (id: string) => {
+    deleteNoteMutation.mutate(id);
+  };
 
   return (
     <div>
@@ -46,30 +49,38 @@ const NoteLists = () => {
           <Spinner animation="border" variant="secondary" />
         </div>
       )}
+      {error instanceof Error && (
+        <div className="container d-flex justify-content-center mt-4">
+          <span className="text-danger">Error: {error.message}</span>
+        </div>
+      )}
       {notes && (
         <ListGroup>
           {notes.map((note: Note) => (
             <ListGroup.Item
-              className="d-flex justify-content-between align-items-center"
+              className="d-flex justify-content-between align-items-center list-item"
               key={note.id}
             >
-              {note.title}
+              <div className="ellipsis">{note.title}</div>
               <div>
                 <Button
-                  variant="outline-success"
+                  variant={isDark ? "success" : "outline-success"}
                   className="me-2"
                   onClick={() => navigate(`/note/${note.id}`)}
                 >
                   <Book />
                 </Button>
                 <Button
-                  variant="outline-dark"
+                  variant={isDark ? "dark" : "outline-dark"}
                   className="me-2"
                   onClick={() => navigate(`/note/${note.id}/edit`)}
                 >
                   <Pencil />
                 </Button>
-                <Button variant="outline-danger">
+                <Button
+                  variant={isDark ? "danger" : "outline-danger"}
+                  onClick={() => handleDeleteNote(note.id!)}
+                >
                   <Trash />
                 </Button>
               </div>

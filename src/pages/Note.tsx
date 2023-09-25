@@ -14,20 +14,29 @@ const Note = () => {
     queryKey: ["notes", id],
     queryFn: () => fetchNote(id!),
   });
-  console.log(note);
-  if (isLoading) {
-    return <Spinner animation="border" variant="secondary" />;
-  }
-
-  if (error instanceof Error) {
-    return <span>Error: {error.message}</span>;
-  }
 
   return (
     <>
-      <h2>{note.title}</h2>
-      <div>{note.body}</div>
-      <Stack direction="horizontal" className="justify-content-end mt-5">
+      {isLoading && (
+        <div className="container d-flex justify-content-center mt-4">
+          <Spinner animation="border" variant="secondary" />
+        </div>
+      )}
+      {error instanceof Error && (
+        <div className="container d-flex justify-content-center mt-4">
+          <span className="text-danger">Error: {error.message}</span>
+        </div>
+      )}
+      {note && (
+        <>
+          <h2>{note.title}</h2>
+          <div>{note.body}</div>
+        </>
+      )}
+      <Stack
+        direction="horizontal"
+        className="justify-content-end m-5 fixed-bottom"
+      >
         <Link to="..">
           <Button type="button" variant="outline-dark">
             Back

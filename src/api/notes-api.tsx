@@ -31,3 +31,10 @@ export async function updateNote(updatedNote: Note) {
   });
   return res.json();
 }
+
+export async function deleteNote(id: string) {
+  const res = await fetch(`http://localhost:3000/notes/${id}`, {
+    method: "DELETE",
+  });
+  return res.json();
+}

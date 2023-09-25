@@ -4,6 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Spinner } from "react-bootstrap";
 import { fetchNote, updateNote } from "../api/notes-api";
 import { Note } from "./NoteLists";
+
 const EditNote = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -26,17 +27,7 @@ const EditNote = () => {
     },
   });
 
-  console.log(note);
-  if (isLoading) {
-    return <Spinner animation="border" variant="secondary" />;
-  }
-
-  if (error instanceof Error) {
-    return <span>Error: {error.message}</span>;
-  }
-
   const handleAddNote = (updatedNote: Note) => {
-    console.log(updatedNote);
     updateNoteMutation.mutate({
       id,
       ...updatedNote,
@@ -44,9 +35,23 @@ const EditNote = () => {
   };
 
   return (
-    <div>
-      <NoteForm initialValue={note} onSubmit={handleAddNote} />
-    </div>
+    <>
+      {isLoading && (
+        <div className="container d-flex justify-content-center mt-4">
+          <Spinner animation="border" variant="secondary" />
+        </div>
+      )}
+      {error instanceof Error && (
+        <div className="container d-flex justify-content-center mt-4">
+          <span className="text-danger">Error: {error.message}</span>
+        </div>
+      )}
+      {note && (
+        <div>
+          <NoteForm initialValue={note} onSubmit={handleAddNote} />
+        </div>
+      )}
+    </>
   );
 };
 
