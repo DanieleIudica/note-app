@@ -3,8 +3,9 @@ import NoteForm from "./NoteForm";
 import { createNote } from "../api/notes-api";
 import { v4 as uuidv4 } from "uuid";
 import { Note } from "../pages/NoteLists";
-import { Modal } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
+import { CheckLg, FileEarmarkPlus } from "react-bootstrap-icons";
 
 const AddNote = () => {
   const queryClient = useQueryClient();
@@ -29,12 +30,24 @@ const AddNote = () => {
 
   return (
     <div>
-      <Modal show={show} onHide={handleClose} animation={false}>
-        <Modal.Header closeButton>
-          <Modal.Body>Added Successfully!</Modal.Body>
-        </Modal.Header>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        animation={false}
+        centered
+        size="sm"
+      >
+        <Modal.Body className="d-flex justify-content-between align-items-center">
+          Added Successfully!
+          <Button onClick={handleClose} variant="outline-success">
+            <CheckLg />
+          </Button>
+        </Modal.Body>
       </Modal>
-      <h2>Add New</h2>
+      <h2>
+        Add New
+        <FileEarmarkPlus className="ms-3 pb-1" />
+      </h2>
       <NoteForm onSubmit={handleAddNote} />
     </div>
   );

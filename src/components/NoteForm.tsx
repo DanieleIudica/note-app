@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Col, Row, Stack, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Note } from "../pages/NoteLists";
-import { isDarkMode } from "../atom/atom";
+import { darkModeAtom } from "../atom/atom";
 import { useAtom } from "jotai";
 
 type NoteFormProps = {
@@ -11,7 +11,7 @@ type NoteFormProps = {
 };
 
 const NoteForm = ({ onSubmit, initialValue }: NoteFormProps) => {
-  const [isDark] = useAtom(isDarkMode);
+  const [darkMode] = useAtom(darkModeAtom);
 
   const [note, setNote] = useState({
     title: initialValue?.title || "",
@@ -66,13 +66,13 @@ const NoteForm = ({ onSubmit, initialValue }: NoteFormProps) => {
           />
         </Form.Group>
         <Stack direction="horizontal" gap={2} className="justify-content-end">
-          <Button type="submit" variant={isDark ? "light" : "dark"}>
+          <Button type="submit" variant={darkMode ? "light" : "dark"}>
             Save
           </Button>
           <Link to="..">
             <Button
               type="button"
-              variant={isDark ? "outline-light" : "outline-dark"}
+              variant={darkMode ? "outline-light" : "outline-dark"}
             >
               Cancel
             </Button>

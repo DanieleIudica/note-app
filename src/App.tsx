@@ -4,22 +4,22 @@ import NoteLists from "./pages/NoteLists";
 import Note from "./pages/Note";
 import EditNote from "./pages/EditNote";
 import { Button, Container, Stack } from "react-bootstrap";
-import { Moon, Sun } from "react-bootstrap-icons";
-import { isDarkMode } from "./atom/atom";
+import { JournalBookmarkFill, Moon, Sun } from "react-bootstrap-icons";
+import { darkModeAtom } from "./atom/atom";
 import { useAtom } from "jotai";
 
 function App() {
-  const [isDark, setIsDark] = useAtom(isDarkMode);
+  const [darkMode, setDarkMode] = useAtom(darkModeAtom);
 
   const handleDarkMode = () => {
-    setIsDark(!isDark);
+    setDarkMode(!darkMode);
   };
   return (
     <div
       style={{
-        backgroundColor: isDark ? "#152e47" : "#adccff",
-        height: "100vh",
-        color: isDark ? "#f5f9ff" : "#191a1b",
+        backgroundColor: darkMode ? "#152e47" : "#adccff",
+        minHeight: "100vh",
+        color: darkMode ? "#f5f9ff" : "#191a1b",
       }}
     >
       <Container className="py-4">
@@ -33,10 +33,13 @@ function App() {
             className="d-flex align-items-center p-2"
             onClick={handleDarkMode}
           >
-            {isDark ? <Sun /> : <Moon />}
+            {darkMode ? <Sun /> : <Moon />}
           </Button>
         </Stack>
-        <h1 className="mb-5">My Notes App</h1>
+        <h1 className="mb-5">
+          <JournalBookmarkFill className="me-2" />
+          My Notes App
+        </h1>
         <Routes>
           <Route path="/" element={<NoteLists />} />
           <Route path="/note/:id" element={<Note />} />
