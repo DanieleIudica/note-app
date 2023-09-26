@@ -25,7 +25,7 @@ function App() {
       <Container className="py-4">
         <Stack
           direction="horizontal"
-          className="justify-content-end m-4 fixed-top"
+          className="m-4 position-absolute top-0 end-0"
         >
           <Button
             type="button"
@@ -38,7 +38,7 @@ function App() {
         </Stack>
         <h1 className="mb-5">
           <JournalBookmarkFill className="me-2" />
-          My Notes App
+          My Notes:
         </h1>
         <Routes>
           <Route path="/" element={<NoteLists />} />

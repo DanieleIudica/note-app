@@ -1,4 +1,4 @@
-import { Button, ListGroup, Spinner } from "react-bootstrap";
+import { Alert, Button, ListGroup, Spinner } from "react-bootstrap";
 import AddNote from "../components/AddNote";
 import { Book, CardList, Pencil, Trash } from "react-bootstrap-icons";
 import "../style/style.scss";
@@ -54,7 +54,7 @@ const NoteLists = () => {
       )}
       {error instanceof Error && (
         <div className="container d-flex justify-content-center mt-4">
-          <span className="text-danger">Error: {error.message}</span>
+          <Alert variant="danger">Error: {error.message}</Alert>
         </div>
       )}
       {notes && (

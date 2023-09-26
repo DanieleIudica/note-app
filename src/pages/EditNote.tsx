@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import NoteForm from "../components/NoteForm";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Spinner } from "react-bootstrap";
+import { Alert, Spinner } from "react-bootstrap";
 import { fetchNote, updateNote } from "../api/notes-api";
 import { Note } from "./NoteLists";
 
@@ -43,7 +43,7 @@ const EditNote = () => {
       )}
       {error instanceof Error && (
         <div className="container d-flex justify-content-center mt-4">
-          <span className="text-danger">Error: {error.message}</span>
+          <Alert variant="danger">Error: {error.message}</Alert>
         </div>
       )}
       {note && (

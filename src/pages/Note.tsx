@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchNote } from "../api/notes-api";
 import { Link, useParams } from "react-router-dom";
-import { Button, Spinner, Stack } from "react-bootstrap";
+import { Alert, Button, Spinner, Stack } from "react-bootstrap";
 import { darkModeAtom } from "../atom/atom";
 import { useAtom } from "jotai";
 
@@ -27,7 +27,7 @@ const Note = () => {
       )}
       {error instanceof Error && (
         <div className="container d-flex justify-content-center mt-4">
-          <span className="text-danger">Error: {error.message}</span>
+          <Alert variant="danger">Error: {error.message}</Alert>
         </div>
       )}
       {note && (
