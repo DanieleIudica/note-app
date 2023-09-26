@@ -66,14 +66,14 @@ const NoteForm = ({ onSubmit, initialValue }: NoteFormProps) => {
           />
         </Form.Group>
         <Stack direction="horizontal" gap={2} className="justify-content-end">
-          <Button
-            type="submit"
-            variant={isDark ? "outline-success" : "success"}
-          >
+          <Button type="submit" variant={isDark ? "light" : "dark"}>
             Save
           </Button>
           <Link to="..">
-            <Button type="button" variant={isDark ? "outline-light" : "dark"}>
+            <Button
+              type="button"
+              variant={isDark ? "outline-light" : "outline-dark"}
+            >
               Cancel
             </Button>
           </Link>

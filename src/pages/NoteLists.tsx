@@ -74,12 +74,14 @@ const NoteLists = () => {
                   variant={isDark ? "dark" : "outline-dark"}
                   className="me-2"
                   onClick={() => navigate(`/note/${note.id}/edit`)}
+                  disabled={note.id === "read-only"}
                 >
                   <Pencil />
                 </Button>
                 <Button
                   variant={isDark ? "danger" : "outline-danger"}
                   onClick={() => handleDeleteNote(note.id!)}
+                  disabled={note.id === "read-only"}
                 >
                   <Trash />
                 </Button>

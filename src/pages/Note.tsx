@@ -2,9 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchNote } from "../api/notes-api";
 import { Link, useParams } from "react-router-dom";
 import { Button, Spinner, Stack } from "react-bootstrap";
+import { isDarkMode } from "../atom/atom";
+import { useAtom } from "jotai";
 
 const Note = () => {
   const { id } = useParams();
+  const [isDark] = useAtom(isDarkMode);
 
   const {
     isLoading,
@@ -38,7 +41,10 @@ const Note = () => {
         className="justify-content-end m-5 fixed-bottom"
       >
         <Link to="..">
-          <Button type="button" variant="outline-dark">
+          <Button
+            type="button"
+            variant={isDark ? "outline-light" : "outline-dark"}
+          >
             Back
           </Button>
         </Link>
