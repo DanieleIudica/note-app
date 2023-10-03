@@ -2,58 +2,28 @@
   "notes": [
     {
       "id": "read-only",
-      "title": "read me",
-      "body": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, qui facere iste enim ex itaque culpa error sint eos necessitatibus ipsa praesentium maiores adipisci asperiores, porro modi earum placeat suscipit."
+      "title": "Read Only",
+      "body": "Passionate and detail-oriented Junior Front-End Developer with expertise in TypeScript, Angular, React, Ionic, SCSS, Redux, NgRx. Skilled in creating dynamic and responsive web applications with a focus on user experience and clean code.Proficient in Angular and React frameworks with TypeScript to build scalable and maintainable front-end solutions. Experienced in working with Ionic for cross-platform mobile app development. Strong understanding of SCSS for efficient styling and layout design. Familiarity with reactive programming using RxJS and state management with NgRx and Redux. Seeking opportunities to contribute to a collaborative team and grow as a front-end developer."
     },
     {
-      "title": "jhsjhsd",
-      "body": "sjdsjdksdksjdksj",
-      "id": "0178a64d-d048-4277-9a14-f9e48b357999"
+      "id": "0178a64d-d048-4277-9a14-f9e48b357999",
+      "title": "API",
+      "body": "\tAPI stands for Application Programming Interface. It is a set of rules and protocols that allows different software applications to communicate with each other. APIs define the methods and data formats that developers can use to request and exchange information between different software systems.\n\t\n\tAPIs are essential for enabling the integration of various services and applications, both on the web and within individual software programs. They are commonly used in web development to allow websites and web applications to interact with external services and retrieve or send data."
     },
     {
-      "title": "ssdsds",
-      "body": "sddsdd",
-      "id": "3e59fc2f-f9a6-4b84-a273-1489525b8a42"
+      "title": "OOP",
+      "body": "\tOOP stands for Object-Oriented Programming. It is a programming paradigm or methodology that uses objects as the primary building blocks for designing and structuring software. In OOP, everything in a program is treated as an object, which is an instance of a class. These objects can have both data (attributes) and functions (methods) that operate on that data. OOP is based on several core principles:\n\t\n\t1. Objects: Objects are instances of classes. A class is a blueprint or template that defines the structure and behavior of objects. Objects can represent real-world entities or abstract concepts. For example, in a banking application, you might have objects representing bank accounts, customers, or transactions.\n\t2. Encapsulation: Encapsulation is the concept of bundling data (attributes) and the methods (functions) that operate on that data into a single unit, called a class. It helps to hide the internal details of how an object works, providing a clear interface for interacting with the object while maintaining data integrity and security.\n\t3. Inheritance: Inheritance is a mechanism that allows one class (the subclass or derived class) to inherit the properties and behaviors of another class (the superclass or base class). This promotes code reuse and the creation of hierarchies of related classes. For example, you can have a superclass \"Vehicle\" and subclasses \"Car\" and \"Motorcycle\" that inherit common properties like \"color\" and \"speed.\"\n\t4. Polymorphism: Polymorphism allows objects of different classes to be treated as objects of a common superclass. It enables you to write code that can work with objects in a more generic way, without needing to know their specific types. Polymorphism is often achieved through method overriding and interfaces in many programming languages.\n\t5. Abstraction: Abstraction is the process of simplifying complex systems by modeling classes based on their essential properties and behaviors while ignoring non-essential details. It allows developers to focus on the high-level design of a system without getting bogged down in implementation specifics.\n\t\n\tOOP is widely used in modern software development because it promotes modularity, reusability, and maintainability of code. It provides a structured way to organize and manage complex systems by breaking them down into smaller, more manageable objects and classes. Many programming languages, such as Java, C++, Python, and C#, support object-oriented programming features, making it a fundamental and widely adopted paradigm in the field of software development.",
+      "id": "0136973f-e094-4ce1-908b-052fb2a691ce"
     },
     {
-      "title": "as",
-      "body": "as",
-      "id": "d7588cfb-22f0-4036-953e-4973bcd02b7e"
+      "title": "Jotai",
+      "body": "Jotai is a state management library for React, similar to libraries like Redux and Mobx. It is designed to help manage the state of a React application in a simple and scalable way. However, please note that the information I have might be outdated, and there may have been developments or changes in Jotai since then.\n\nHere are some key features and concepts associated with Jotai:\n\nAtom: Jotai introduces the concept of an \"atom,\" which is a unit of state. Atoms can be thought of as individual pieces of application state. You can create atoms using the createAtom function.\n\nProvider: Like Redux, Jotai utilizes a context provider to make state accessible throughout the component tree. You can wrap your application with a Provider to give components access to the atoms.\n\nuseAtom Hook: Jotai provides a useAtom hook that allows you to read and update the state stored in atoms. This hook is similar in function to React's built-in useState hook but can be used with atoms to share state across components.\n\nImmutability: Jotai encourages the use of immutable updates when modifying state. Instead of directly mutating the state, you typically create a new state value based on the existing state.\n\nDerived State: Jotai supports derived state, where you can create atoms whose values are derived from other atoms. This can help keep your state logic organized and efficient.\n\nDynamic Atoms: Jotai allows you to dynamically create atoms and manage their lifecycles, which can be useful for handling dynamic data sources or components.\n\nIt's worth noting that Jotai aims to provide a simpler and more ergonomic way to manage state compared to some of the more complex state management solutions, like Redux. However, the choice of a state management library often depends on the specific requirements and complexity of your application.",
+      "id": "c3348c03-ee85-4508-9dcd-eba2a0a3be89"
     },
     {
-      "title": "a",
-      "body": "a",
-      "id": "eae45537-16f0-4139-a800-df20ea31b18d"
-    },
-    {
-      "title": "a",
-      "body": "a",
-      "id": "efaaa98e-6b6d-4681-8faf-d41e4808e8a8"
-    },
-    {
-      "title": "a",
-      "body": "a",
-      "id": "26826532-7fc5-4421-b9d2-b50d58847936"
-    },
-    {
-      "title": "a",
-      "body": "a",
-      "id": "0b6f6c52-a6c5-4845-8a40-ed37ea9bb7d4"
-    },
-    {
-      "title": "a",
-      "body": "a",
-      "id": "dacc4199-6809-4fe8-9467-f43e7456a5ce"
-    },
-    {
-      "title": "s",
-      "body": "s",
-      "id": "8d3f4f88-51d6-4636-a65d-879363b77412"
-    },
-    {
-      "title": "a",
-      "body": "a",
-      "id": "bc4c5176-12ba-4655-861e-2206ab37acf7"
+      "title": "Bootstrap",
+      "body": "Bootstrap is a popular open-source front-end framework for building responsive and visually appealing web applications and websites. It was originally created by Twitter and is now maintained by a community of developers. Bootstrap provides a collection of pre-designed HTML, CSS, and JavaScript components, as well as a grid system and typography styles, that make it easier to create consistent and attractive web user interfaces.\n\nHere are some key features and components of Bootstrap:\n\nResponsive Grid System: Bootstrap uses a 12-column grid system that helps in creating responsive layouts for web pages. It allows you to design your content to adapt to different screen sizes, making your website mobile-friendly.\n\nCSS Styles and Components: Bootstrap comes with a set of CSS classes and styles that can be applied to various HTML elements to achieve consistent and visually appealing designs. These styles include buttons, forms, navigation bars, alerts, and more.\n\nJavaScript Plugins: Bootstrap includes JavaScript plugins that enhance the functionality of your website. Some popular plugins include modal dialogs, carousels (image sliders), tooltips, popovers, and dropdown menus.\n\nTypography: Bootstrap provides a set of predefined typography styles for headings, paragraphs, lists, and other text elements. It helps maintain a consistent and readable text presentation.\n\nCustomizable Themes: Bootstrap allows you to customize the framework's default styles and colors to match your project's branding and design requirements. You can use the Bootstrap Theming system to create custom themes.\n\nSass Support: Bootstrap is built using Sass (a CSS preprocessor), which makes it easier to customize the framework by modifying variables and using the built-in Sass tools.\n\nAccessibility: Bootstrap is designed with accessibility in mind, making it easier to create websites and applications that are usable by people with disabilities. It provides ARIA roles and attributes for enhanced accessibility.\n\nCommunity and Documentation: Bootstrap has a large and active community of developers, which means you can find a wealth of resources, tutorials, and third-party themes and plugins to extend its functionality. The official Bootstrap documentation is comprehensive and easy to follow.\n\nBrowser Compatibility: Bootstrap is designed to work well across different web browsers, ensuring a consistent experience for users.\n\nBootstrap is widely used by developers and designers because it simplifies the process of creating responsive and visually appealing websites. It's a great choice for both beginners and experienced developers looking to streamline their web development process. You can get started with Bootstrap by including its CSS and JavaScript files in your HTML templates and utilizing its components and styles to build web interfaces quickly.",
+      "id": "c5a22c24-b865-4a76-8ce6-bfa37649df80"
     }
   ]
 }

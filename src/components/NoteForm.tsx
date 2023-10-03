@@ -42,7 +42,7 @@ const NoteForm = ({ onSubmit, initialValue }: NoteFormProps) => {
         <Row>
           <Col>
             <Form.Group controlId="title">
-              <Form.Label>Title</Form.Label>
+              <Form.Label>Title:</Form.Label>
               <Form.Control
                 className="input"
                 onChange={handleChangeInput}
@@ -54,7 +54,7 @@ const NoteForm = ({ onSubmit, initialValue }: NoteFormProps) => {
           </Col>
         </Row>
         <Form.Group controlId="markdown">
-          <Form.Label>Body</Form.Label>
+          <Form.Label>Description:</Form.Label>
           <Form.Control
             className="input"
             onChange={handleChangeInput}

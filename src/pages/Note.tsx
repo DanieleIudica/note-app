@@ -33,7 +33,7 @@ const Note = () => {
       {note && (
         <>
           <h2>{note.title}</h2>
-          <div>{note.body}</div>
+          <div className="fs-5">{note.body}</div>
         </>
       )}
       <Stack
